@@ -3243,5 +3243,41 @@ PNG_EXPORT(244, int, png_set_option, (png_structrp png_ptr, int option,
 #endif
 
 #endif /* PNG_VERSION_INFO_ONLY */
+
+
+// Solar2D add NXS support which different from original libpng
+#ifdef NXS_LIB
+#define fclose	nFileClose
+#define fopen	nFileOpen
+#define freopen	nFileReopen
+#define fdopen	nFileReopen
+#define remove	nFileRemove
+#define rename	nFileRename
+#define rewind nFileRewind
+#define tmpfile nFileTmpfile
+#define clearerr nFileClearerr
+#define feof nFileEof
+#define ferror nFileError
+#define fflush nFileFlush
+#define fgetpos nFileFgetpos
+#define fgetc nFileFgetC
+#define fgets nFileFgetS
+#define fputc nFileFputC
+#define fputs nFileFputS
+#define ftell    nFileTell
+#define fseek    nFileSeek
+#define fsetpos   nFileSetpos
+#define fread    nFileRead
+#define fwrite   nFileWrite
+#define getc    nFileGetC
+#define getchar    nFileGetC
+#define putc    nFilePutC
+#define putchar    nFilePutC
+#define fputchar    nFilePutC
+#define ungetc    nFileUngetC
+#define lstat nFileStatus
+#endif
+
+
 /* Do not put anything past this line */
 #endif /* PNG_H */
